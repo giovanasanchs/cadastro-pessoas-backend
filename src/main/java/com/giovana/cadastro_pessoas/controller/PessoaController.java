@@ -21,8 +21,11 @@ public class PessoaController {
     }
 
     @GetMapping
-    public List<Pessoa> listar() {
-        return service.listar();
+    public List<Pessoa> listar(
+            @RequestParam(required = false) String nome,
+            @RequestParam(required = false) String cpf
+    ) {
+        return service.listarComFiltro(nome, cpf);
     }
 
     @GetMapping("/{id}")

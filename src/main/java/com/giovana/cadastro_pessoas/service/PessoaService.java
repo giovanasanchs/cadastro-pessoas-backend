@@ -17,8 +17,23 @@ public class PessoaService {
         return repository.save(pessoa);
     }
 
-    public List<Pessoa> listar() {
-        return repository.findAll();
+    public List<Pessoa> listarComFiltro(String nome, String cpf) {
+        List<Pessoa> pessoas = repository.findAll();
+
+        if (nome != null && !nome.isBlank()) {
+            pessoas = pessoas.stream()
+                    .filter(p -> p.getNome().toLowerCase().contains(nome.toLowerCase()))
+                    .toList();
+        }
+
+        if (cpf != null && !cpf.isBlank()) {
+            String cpfNumeros = cpf.replaceAll("\\D", "");
+            pessoas = pessoas.stream()
+                    .filter(p -> p.getCpf().replaceAll("\\D", "").contains(cpfNumeros))
+                    .toList();
+        }
+
+        return pessoas;
     }
 
     public Optional<Pessoa> buscarPorId(Long id) {
