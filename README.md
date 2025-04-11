@@ -6,9 +6,9 @@ Este backend foi desenvolvido em **Java com Spring Boot** para atender ao desafi
 
 ---
 
-## 📦 Repositório
+## 📦 Repositório Frontend
 
-👉 [cadastro-de-pessoas-backend](https://github.com/giovanasanchs/cadastro-pessoas-backend)
+👉 [cadastro-de-pessoas-frontend](https://github.com/giovanasanchs/cadastro-pessoas-frontend)
 
 ---
 
